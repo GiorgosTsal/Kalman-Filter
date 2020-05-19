@@ -10,8 +10,8 @@ C = [1 0 0];
 
 Plant = ss(A,[B B],C,0,-1,'inputname',{'u' 'w'},'outputname','y');
 
-Q = 1; 
-R = 1;
+Q = 10; 
+R = 6;
 [kalmf,L,P,M] = kalman(Plant,Q,R);
 
 kalmf = kalmf(1,:);
