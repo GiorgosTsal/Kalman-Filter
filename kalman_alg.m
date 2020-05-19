@@ -48,11 +48,15 @@ Pk1k = (Phi - Gpk*Ck) *Pkk * (Phi - Gpk*Ck)' + Gammak*Q*Gammak' - Gpk*R*Gpk'; % 
 
 Gk1 = Pk1k *Ck' * ( Pk1k * Ck' + R).^(-1) ; % (25)
 
-Pk1k1 = (1 - Gk1 * Ck ) * Pk1k; % (24)
+Pk1k1 = (1-Gk1*Ck)*Pk1k; % (24) %πίνακας συμμεταβλητότητας X(k+1/k+1)
+                                        %της ανέλιξης του σφάλματος
 
-Xhatk1k1 = Phi * Xhatkk + Fk + Gammak*Ew1 + Gk1 * ( yk1 - Ex0*U
 
+% Xhatk1k1 = Phi * Xhatkk + Fk*Uk + Gammak*Ew1 + Gk1 * ( yk1 - Ek*Uk - Ee ...
+% -Ck * (Phi * Xhatkk + Fk*Uk + Gammak*Ew1          % (23)
 
+% Xk1= Phi * Xk + Fk*Uk + Gammak*Wk; % (14)
+% Yk1 = Ck*Xk + Ek*Uk +ek; % (15)
 
 % for i = 1:k
 %     Pk1k = A*S.P{i-1}*A'+B*Q*B';
