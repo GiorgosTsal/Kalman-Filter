@@ -1,3 +1,5 @@
+clear; close all; clc;
+
 %matrix for vars x1,x2
 A = [0.8   2;
      0   0.9];
@@ -42,7 +44,9 @@ Gpk=Gammak *Pew * R.^(-1); % (27)
 Ck = C;
 Fk = U;
 
+Pinit = Pew;
 
+kalmanFilter(A,B,C,Q,R,Pinit,Xinit,u,t)
 
 
 Pk1k = (Phi - Gpk*Ck) *Pkk * (Phi - Gpk*Ck)' + Gammak*Q*Gammak' - Gpk*R*Gpk'; % (26)
