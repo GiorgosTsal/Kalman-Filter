@@ -38,23 +38,26 @@ Pkk = [40 0;
 Q = [10 0;
      0 10];
 
-Gammak = B;
-Phi = A;
-Gpk=Gammak *Pew * R.^(-1); % (27)
-Ck = C;
-Fk = U;
+% Gammak = B;
+% Phi = A;
+% Gpk=Gammak *Pew * R.^(-1); % (27)
+% Ck = C;
+% Fk = U;
 
-Pinit = Pew;
-
+Pinit = Pkk;
+Xinit = [0;
+         0];
+u = U;
+t=[1:2];
 kalmanFilter(A,B,C,Q,R,Pinit,Xinit,u,t)
 
 
-Pk1k = (Phi - Gpk*Ck) *Pkk * (Phi - Gpk*Ck)' + Gammak*Q*Gammak' - Gpk*R*Gpk'; % (26)
-
-Gk1 = Pk1k *Ck' * ( Pk1k * Ck' + R).^(-1) ; % (25)
-
-Pk1k1 = (1-Gk1*Ck)*Pk1k; % (24) %πίνακας συμμεταβλητότητας X(k+1/k+1)
-                                        %της ανέλιξης του σφάλματος
+% Pk1k = (Phi - Gpk*Ck) *Pkk * (Phi - Gpk*Ck)' + Gammak*Q*Gammak' - Gpk*R*Gpk'; % (26)
+% 
+% Gk1 = Pk1k *Ck' * ( Pk1k * Ck' + R).^(-1) ; % (25)
+% 
+% Pk1k1 = (1-Gk1*Ck)*Pk1k; % (24) %πίνακας συμμεταβλητότητας X(k+1/k+1)
+%                                         %της ανέλιξης του σφάλματος
 
 
 % Xhatk1k1 = Phi * Xhatkk + Fk*Uk + Gammak*Ew1 + Gk1 * ( yk1 - Ek*Uk - Ee ...
